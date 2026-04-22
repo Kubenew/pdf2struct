@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdf2struct"
+version = "0.2.0"
+description = "pdf2struct: extract structured JSON from PDFs (text, metadata, tables, OCR, invoice key-value fields)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name="Kubenew"}]
+keywords = ["pdf", "ocr", "invoice", "parser", "extract", "table", "json"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Developers",
+  "Topic :: Text Processing",
+]
+
+dependencies = [
+  "pydantic>=2.0.0",
+  "pdfplumber>=0.11.0",
+]
+
+[project.optional-dependencies]
+ocr = [
+  "pytesseract>=0.3.10",
+  "Pillow>=10.0.0"
+]
+dev = ["pytest>=7.0.0", "build>=1.0.0", "twine>=4.0.0"]
+
+[project.scripts]
+pdf2struct = "pdf2struct.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Kubenew/pdf2struct"
+Repository = "https://github.com/Kubenew/pdf2struct"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pdf2struct*"]
