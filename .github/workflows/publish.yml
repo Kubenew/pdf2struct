@@ -1,0 +1,25 @@
+name: Publish to PyPI
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version'
+        required: true
+        default: '0.2.0'
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install build
+      - if: github.event_name == 'workflow_dispatch'
+        run: sed -i 's/version = ".*"/version = "${{ github.event.inputs.version }}"/' pyproject.toml
+      - run: python -m build
+      - uses: pypa/gh-action-pypi-publish@release/v1
