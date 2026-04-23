@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version (e.g., 0.2.0)'
+        required: true
+        default: '0.2.0'
+      changelog:
+        description: 'Changelog content'
+        required: true
+        default: '- Initial release'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ github.event.inputs.version }}
+          release_name: pdf2struct v${{ github.event.inputs.version }}
+          body: |
+            ## Changelog
+
+            ${{ github.event.inputs.changelog }}
+
+            ## Installation
+
+            ```bash
+            pip install pdf2struct
+            ```
+          draft: false
+          prerelease: false
