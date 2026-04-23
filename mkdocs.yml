@@ -1,0 +1,20 @@
+site_name: pdf2struct
+site_description: Extract structured JSON from PDFs
+site_url: https://Kubenew.github.io/pdf2struct
+repo_name: Kubenew/pdf2struct
+repo_url: https://github.com/Kubenew/pdf2struct
+
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: light blue
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage: usage.md
+  - API: api.md
+
+plugins:
+  - search
