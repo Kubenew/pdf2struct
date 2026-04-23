@@ -1,5 +1,11 @@
 # pdf2struct
 
+[![PyPI Version](https://img.shields.io/pypi/v/pdf2struct)](https://pypi.org/project/pdf2struct/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/pdf2struct)](https://pypi.org/project/pdf2struct/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Tests](https://github.com/Kubenew/pdf2struct/actions/workflows/ci.yml/badge.svg)](https://github.com/Kubenew/pdf2struct/actions/workflows/ci.yml)
+[![Downloads](https:///pepy.tech/badge/pdf2struct)](https://pepy.tech/project/pdf2struct)
+
 `pdf2struct` extracts structured JSON from PDF documents.
 
 Supports:
